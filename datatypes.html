@@ -7,7 +7,13 @@ Data Types
 <script type="text/javascript" src="navigation.js"></script>
 </head><body onload="highlightTab();">
 
-<div class="pageTitle">Phoenix SQL Language Reference</div>
+<div class="pageTitle">Phoenix Language Reference</div>
+<div>
+<p>Phoenix is a SQL layer over HBase delivered as an embedded JDBC driver.
+The top level commands, SQL syntax, built-in functions, and supported data types are documented in the separate tabs below.
+</p>
+<br/>
+</div>
 <div class="menu">
 <a id="grammarTab" class="inactiveTab" href="index.html">SQL Grammar</a>
 <a id="functionsTab" class="inactiveTab" href="functions.html">Functions</a>
@@ -246,36 +252,36 @@ syntax-end -->
 <h3 id="varchar_type" class="notranslate">VARCHAR Type</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-VARCHAR  [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+VARCHAR  [ ( <a href="index.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">VARCHAR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">VARCHAR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="index.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre>
-VARCHAR  [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+VARCHAR  [ ( <a href="index.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
 <p>A variable length String with an optional max byte length. The binary representation is <code>UTF8</code> matching the <code>HBase</code> Bytes.toBytes(String) method. When used in a row key, it is terminated with a null byte unless it is the last column.</p><p>Mapped to <code>java.lang.String</code>.</p>
 <p>Example:</p>
-<p class="notranslate">VARCHAR2(255)</p>
+<p class="notranslate">VARCHAR<br />VARCHAR(255)</p>
 
 <h3 id="char_type" class="notranslate">CHAR Type</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-CHAR ( <a href="grammar.html#int">precisionInt</a> )
+CHAR ( <a href="index.html#int">precisionInt</a> )
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CHAR ( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CHAR ( <a href="index.html#int">precisionInt</a> )</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre>
-CHAR ( <a href="grammar.html#int">precisionInt</a> )
+CHAR ( <a href="index.html#int">precisionInt</a> )
 </pre>
 syntax-end -->
-<p>A fixed length String. Currently only single byte characters supported.</p><p>Mapped to <code>java.lang.String</code>.</p>
+<p>A fixed length String with single-byte characters. The binary representation is <code>UTF8</code> matching the <code>HBase</code> Bytes.toBytes(String) method.</p><p>Mapped to <code>java.lang.String</code>.</p>
 <p>Example:</p>
 <p class="notranslate">CHAR(10)</p>
 
